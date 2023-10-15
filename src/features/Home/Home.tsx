@@ -90,7 +90,17 @@ const Home: React.FC = () => {
         <ContentSpinner />
       ) : validArray(userList) ? (
         userList?.map((user) => {
-          const { company, email, id, name, phone, username, website } = user;
+          const {
+            company,
+            email,
+            id,
+            name,
+            phone,
+            username,
+            website,
+            address,
+          } = user;
+          const { city, street, suite } = address;
           return (
             <Accordion
               key={id}
@@ -149,6 +159,24 @@ const Home: React.FC = () => {
                       Website:
                     </Typography>
                     <Typography>{website}</Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1" color="primary">
+                      City:
+                    </Typography>
+                    <Typography>{city}</Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1" color="primary">
+                      Street:
+                    </Typography>
+                    <Typography>{street}</Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1" color="primary">
+                      Suite:
+                    </Typography>
+                    <Typography>{suite}</Typography>
                   </Grid>
                 </Grid>
                 {editedUser && editedUser.id === id ? (
