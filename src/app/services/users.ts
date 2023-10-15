@@ -64,6 +64,18 @@ export const usersApi = api.injectEndpoints({
               }
             )
           );
+          dispatch(
+            usersApi.util.updateQueryData(
+              "getUserInfo",
+              data.id,
+              (draftUser: User) => {
+                return {
+                  ...draftUser,
+                  ...updatedUser,
+                };
+              }
+            )
+          );
         } catch (_err) {
           return;
         }

@@ -74,8 +74,8 @@ const TasksComponent: React.FC = () => {
         todo.completed === debouncedFilterValues.completed) &&
       (debouncedFilterValues.title === "" ||
         todo.title.includes(debouncedFilterValues.title)) &&
-      (debouncedFilterValues.userId === 0 ||
-        todo.userId === debouncedFilterValues.userId)
+      (Number(debouncedFilterValues.userId) === 0 ||
+        todo.userId === Number(debouncedFilterValues.userId))
     );
   });
 
